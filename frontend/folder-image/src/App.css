@@ -1,0 +1,193 @@
+/* ---------------- Global & Background Styles ---------------- */
+
+/* Ensure full-screen layout and apply a moving neon gradient background */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  /* Animated gradient background */
+  background: linear-gradient(-45deg, #000, #141414, #000, #141414);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  color: #0ff; /* Neon cyan default text */
+}
+
+/* Animate background gradient */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ---------------- App Container ---------------- */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ---------------- Default CRA Elements (Optional) ---------------- */
+/* If you’re not using the CRA logo or header, you can remove these */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-header {
+  /* Remove default dark header; uploader container now takes center stage */
+  display: none;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/* ---------------- Uploader Component Styles ---------------- */
+.uploader-container {
+  background: rgba(0, 0, 0, 0.25); /* Slightly transparent black for contrast */
+  border: 2px solid #0ff;          /* Neon cyan border */
+  border-radius: 8px;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  margin: 20px auto;
+  box-shadow: 0 0 20px #0ff;        /* Neon glow effect */
+  text-align: center;
+}
+
+.uploader-container h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+/* File input styling */
+.folder-input {
+  display: block;
+  margin: 1rem auto;
+  background: transparent;
+  border: 1px solid #0ff;
+  padding: 8px;
+  border-radius: 4px;
+  color: #fff;
+  width: 70%;
+  max-width: 300px;
+  cursor: pointer;
+}
+
+/* Neon-styled Upload button */
+.upload-button {
+  background: #0ff;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upload-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+}
+
+/* Status message styling */
+.status-message {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+/* File list preview styling */
+.file-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.file-list li {
+  background: rgba(0, 255, 255, 0.1); /* Subtle neon highlight */
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  color: #0ff;
+  box-shadow: 0 0 5px #0ff inset;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .uploader-container {
+    padding: 20px;
+  }
+
+  .uploader-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .upload-button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+.file-list {
+  display: flex;
+  flex-wrap: wrap;         /* Allows items to wrap to the next line */
+  justify-content: center; /* Centers the previews horizontally */
+  gap: 20px;               /* Spacing between previews */
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.file-list li {
+  background: rgba(0, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 4px;
+  color: #0ff;
+  box-shadow: 0 0 5px #0ff inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 200px; /* optional: limit preview width */
+}
+
+.preview-image {
+  max-width: 100%; /* Make image fit its container */
+  height: auto;
+  border: 2px solid #0ff; /* or any styling you prefer */
+  margin-bottom: 8px;
+}
